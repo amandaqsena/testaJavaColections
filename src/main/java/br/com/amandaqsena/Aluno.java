@@ -31,4 +31,8 @@ public class Aluno {
         Aluno outroAluno = (Aluno) obj;
         return this.nome.equals(outroAluno.nome);
     }
+    @Override
+        public int hashCode(){
+        return this.nome.hashCode();
+    }
 }
