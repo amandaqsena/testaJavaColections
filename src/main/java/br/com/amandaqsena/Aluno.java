@@ -28,8 +28,21 @@ public class Aluno {
 
     @Override
     public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
         Aluno outroAluno = (Aluno) obj;
-        return this.nome.equals(outroAluno.nome);
+        if (nome == null) {
+            if (outroAluno.nome != null)
+                return false;
+        } else if (!nome.equals(outroAluno.nome))
+            return false;
+        if (numeroMatricula != outroAluno.numeroMatricula)
+            return false;
+        return true;
     }
     @Override
         public int hashCode(){
