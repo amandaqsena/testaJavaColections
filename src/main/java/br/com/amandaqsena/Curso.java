@@ -2,8 +2,11 @@ package br.com.amandaqsena;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class Curso {
@@ -12,6 +15,7 @@ public class Curso {
     private String instrutor;
     private List<Aula> aulas = new LinkedList<Aula>();
     private Set<Aluno> alunos = new HashSet<>();
+    private Map<Integer, Aluno> matriculaParaAluno = new HashMap<>();
 
     public Curso(String nome, String instrutor) {
         this.nome = nome;
@@ -48,16 +52,23 @@ public class Curso {
         return "[Curso: " + nome + ", tempo total: " + this.getTempoTotal() + ", aulas: " + this.aulas + "]";
     }
 
-    public void matricula(Aluno aluno){
-        this.alunos.add(aluno);
-    }
-
     public Set<Aluno> getAlunos() {
         return Collections.unmodifiableSet(alunos);
     }
 
     public boolean estaMatriculado(Aluno aluno) {
         return this.alunos.contains(aluno);
+    }
+
+    public void matricula(Aluno aluno) {
+        // adiciona no Set de alunos
+        this.alunos.add(aluno);
+        // cria a relação no Map
+        this.matriculaParaAluno.put(aluno.getNumeroMatricula(), aluno);
+    }
+
+    public Aluno buscaMatriculado(int numero){
+        return this.matriculaParaAluno.get(numero);
     }
     
 }

@@ -20,6 +20,7 @@ public class Aluno {
     public int getNumeroMatricula() {
         return numeroMatricula;
     }
+    
 
     @Override
     public String toString() {

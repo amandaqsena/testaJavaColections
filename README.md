@@ -38,9 +38,17 @@ Editar a variável PATH, adcionando no final %JAVA_HOME%\bin.
 
 - Collection
     - Set
-        - SortedSet
+        - SortedSet (interface)
+            - TreeSet
+        - LinkedHashSet
+        - HashSet
     - List
+        - ArrayList
+        - Vector
+        - LinkedList
     - Queue
+        - LinkedList
+        - PriorityQueue
     - Deque
 -Map
     - SortedMap# testaJavaColections
